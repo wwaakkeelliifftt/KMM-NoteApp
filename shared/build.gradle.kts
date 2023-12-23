@@ -61,6 +61,14 @@ kotlin {
 }
 
 sqldelight {
+    // for 2.0.1v
+//    databases {
+//        create("NoteDatabase") {
+//            packageName.set("com.example.notekmm.database")
+//            srcDirs.setFrom("sqldelight")
+//        }
+//    }
+
     database("NoteDatabase") {
         packageName = "com.example.notekmm.database"
         sourceFolders = listOf("sqldelight")
