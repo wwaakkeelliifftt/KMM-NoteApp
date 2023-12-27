@@ -58,20 +58,23 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
 
-    implementation("com.google.dagger:hilt-android:2.44")
-    configurations.getByName("kapt").dependencies.add(
-        DefaultExternalModuleDependency(
-          "com.google.dagger",
-            "hilt-android-compiler",
-            "2.44"
-        )
-    )
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+//    configurations.getByName("kapt").dependencies.add(
+//        DefaultExternalModuleDependency(
+//          "com.google.dagger",
+//            "hilt-android-compiler",
+//            "2.44"
+//        )
+//    )
+
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-    configurations.getByName("kapt").dependencies.add(
-        DefaultExternalModuleDependency(
-            "androidx.hilt",
-            "hilt-compiler",
-            "1.1.0"
-        )
-    )
+    kapt("androidx.hilt:hilt-compiler:1.1.0")
+//    configurations.getByName("kapt").dependencies.add(
+//        DefaultExternalModuleDependency(
+//            "androidx.hilt",
+//            "hilt-compiler",
+//            "1.1.0"
+//        )
+//    )
 }
