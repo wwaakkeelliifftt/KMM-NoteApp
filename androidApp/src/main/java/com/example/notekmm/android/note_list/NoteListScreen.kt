@@ -29,10 +29,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.example.notekmm.android.note_detail.NOTE_DETAIL_SCREEN
+
+
+const val NOTE_LIST_SCREEN = "note_list_screen"
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun NoteListScreen(
+    navController: NavController,
     viewModel: NodeListViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsState()
@@ -45,7 +51,7 @@ fun NoteListScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-
+                    navController.navigate("$NOTE_DETAIL_SCREEN/-1") // new note with default id=-1
                 },
                 containerColor = Color.Black
             ) {
@@ -99,7 +105,7 @@ fun NoteListScreen(
                         note = note,
                         backgroundColor = Color(note.colorHex),
                         onNoteClick = {
-
+                            navController.navigate("$NOTE_DETAIL_SCREEN/${note.id}")
                         },
                         onDeleteClick = {
                             viewModel.deleteNoteById(note.id!!)

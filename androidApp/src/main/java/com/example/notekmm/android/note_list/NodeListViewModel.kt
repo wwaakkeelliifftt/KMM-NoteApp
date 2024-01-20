@@ -3,6 +3,7 @@ package com.example.notekmm.android.note_list
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.notekmm.android.util.SSH
 import com.example.notekmm.domain.note.Note
 import com.example.notekmm.domain.note.NoteDataSource
 import com.example.notekmm.domain.note.SearchNotes
@@ -14,13 +15,6 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
-// saved state handle
-object SSH {
-    const val NOTES = "notes"
-    const val SEARCH_TEXT = "searchText"
-    const val IS_SEARCH_ACTIVE = "isSearchActive"
-}
 
 @HiltViewModel
 class NodeListViewModel @Inject constructor(
@@ -50,7 +44,7 @@ class NodeListViewModel @Inject constructor(
                         id = null,
                         title = "title $it",
                         content = "content $it: blablabla",
-                        colorHex = RedPinkHex,
+                        colorHex = Note.generateRandomColor(),
                         created = DateTimeUtil.now()
                     )
                 )
