@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                         NoteListScreen(navController)
                     }
                     composable(
-                        route = "$NOTE_DETAIL_SCREEN/${SSH.EXISTING_NOTE_ID}",
+                        route = "$NOTE_DETAIL_SCREEN/{${SSH.EXISTING_NOTE_ID}}",
                         arguments = listOf(
                             navArgument(name = SSH.EXISTING_NOTE_ID) {
                                 type = NavType.LongType

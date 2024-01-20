@@ -37,19 +37,19 @@ class NodeListViewModel @Inject constructor(
 
     init {
         // todo: remove demo
-        viewModelScope.launch {
-            (1..10).forEach {
-                noteDataSource.insertNote(
-                    Note(
-                        id = null,
-                        title = "title $it",
-                        content = "content $it: blablabla",
-                        colorHex = Note.generateRandomColor(),
-                        created = DateTimeUtil.now()
-                    )
-                )
-            }
-        }
+//        viewModelScope.launch {
+//            (1..10).forEach {
+//                noteDataSource.insertNote(
+//                    Note(
+//                        id = null,
+//                        title = "title $it",
+//                        content = "content $it: blablabla",
+//                        colorHex = Note.generateRandomColor(),
+//                        created = DateTimeUtil.now()
+//                    )
+//                )
+//            }
+//        }
     }
 
     fun loadNotes() {
